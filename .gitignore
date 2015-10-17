@@ -2,7 +2,7 @@ resources/public/js/out
 /target
 /lib
 /classes
-/out
+out/
 /.repl
 *.jar
 *.class
