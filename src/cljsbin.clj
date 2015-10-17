@@ -32,7 +32,7 @@
     ; Compile source using :simple level of optimization.
     (cljs/build source-file
                 {
-                 ;:optimizations :advanced
+                 :optimizations :advanced
                  :output-to (.getAbsolutePath compiled-file)
                  :output-dir (.getAbsolutePath cljs-compilation-dir)
                  :pretty-print true})
@@ -80,7 +80,6 @@
   ; Html structure is dead simple so it is easier to use hiccup here
   ; then load/update html template.
   (-> (list [:head
-             [:script "out/goog/base.js"]
              [:title (str "Snippet " id)]
              [:script {:src (str "/js/" id)}]]
             [:body])

@@ -1,4 +1,5 @@
-(ns hello)
+(ns hello
+  (:require [clojure.browser.dom :as dom]))
 
 (defn create-button []
   (let [new-button (.createElement js/document "input")]
