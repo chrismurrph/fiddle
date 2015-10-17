@@ -10,5 +10,5 @@
                  [reagent "0.5.1-rc3"]
                  [re-com "0.6.1"]
                  ]
-  :cljsbuild {:builds [{:compiler {:optimizations :none }}]}                              
+  ;:cljsbuild {:builds [{:compiler {:optimizations :none }}]}                              
   :main ^:skip-aot core)

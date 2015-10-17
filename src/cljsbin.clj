@@ -5,7 +5,11 @@
             [compojure.route :refer [files]]
             [ring.middleware.json :as json]
             [cljs.closure :as cljs]
-            [me.raynes.fs :as fs]))
+            [me.raynes.fs :as fs]
+            ; I don't think the CP used by build comes from here - it will come from project.clj
+            ;[reagent :as ra]
+            ;[re-com :as rc]
+            ))
             
 ; Create temp dir where cljs will be compiled.
 ; It is used to speed up compilation: clojurescript compiler stores
@@ -25,7 +29,8 @@
 
     ; Compile source using :simple level of optimization.
     (cljs/build source-file
-                {:optimizations :simple
+                {
+                 ;:optimizations :simple
                  :output-to (.getAbsolutePath compiled-file)
                  :output-dir (.getAbsolutePath cljs-compilation-dir)
                  :pretty-print true})
