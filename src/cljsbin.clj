@@ -10,7 +10,9 @@
             ;[reagent :as ra]
             ;[re-com :as rc]
             ))
-            
+
+; To build better than :optimizations :simple (which won't allow libraries) need to see here:            
+; https://github.com/clojure/clojurescript/wiki/Quick-Start            
 ; Create temp dir where cljs will be compiled.
 ; It is used to speed up compilation: clojurescript compiler stores
 ; intermediate results there. For example cljs.core and clojure.*
@@ -30,7 +32,7 @@
     ; Compile source using :simple level of optimization.
     (cljs/build source-file
                 {
-                 ;:optimizations :simple
+                 :optimizations :advanced
                  :output-to (.getAbsolutePath compiled-file)
                  :output-dir (.getAbsolutePath cljs-compilation-dir)
                  :pretty-print true})
