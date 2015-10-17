@@ -1,0 +1,17 @@
+(ns hello
+  (:require [clojure.browser.dom :as dom]))
+
+(defn create-button []
+  (let [new-button (.createElement js/document "input")]
+    (set! (.-type new-button)
+          "button")
+    new-button))
+
+(let [div (.createElement js/document "DIV")]
+    (.appendChild div (create-button)))
+
+(defn say-hello []
+  (->> (create-button)
+       (dom/append (.-body js/document))))
+
+(.addEventListener js/window "load" say-hello)

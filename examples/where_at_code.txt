@@ -1,0 +1,44 @@
+(ns hello
+  (:require [clojure.browser.dom :as dom]
+            [re-com.core :as re-com]
+            [reagent.core :as reagent]))
+
+(defn create-button []
+  (let [new-button (.createElement js/document "input")]
+    (set! (.-type new-button)
+          "button")
+    new-button))
+
+(def h-box                      re-com/h-box)
+(def v-box                      re-com/v-box)
+(def box                        re-com/box)
+(def gap                        re-com/gap)
+
+(defn simple-title [txt]
+  [re-com/title
+   :label txt
+   :level :level1])
+
+(defn main-panel []
+  (fn []
+    [v-box
+     :height "100%"
+     :children [[h-box
+                 :width "100%"
+                 :children [(simple-title "Should see right at top of page (works)")]
+                 :align-self :start]
+                [h-box
+                 :width "100%"
+                 :gap "3em"
+                 :align-self :end
+                 :children [(simple-title "Want right at bottom (not working)") (simple-title "Just to its right")]]]]))
+
+(defn say-hello []
+  (->> (create-button)
+       (dom/append (.-body js/document))))
+
+(defn mount-root []
+  (reagent/render (simple-title "Hi")
+                  (.getElementById js/document "app")))
+
+(.addEventListener js/window "load" (mount-root))
