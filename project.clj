@@ -7,8 +7,10 @@
                  [ring/ring-json "0.3.1"]
                  [org.clojure/clojurescript "1.7.48"]
                  [me.raynes/fs "1.4.6"]
-                 [reagent "0.5.1-rc3"]
+                 ;[reagent "0.5.1-rc3"]
+                 [reagent "0.5.1-rc3" :exclusions [cljsjs/react]]
+                 [cljsjs/react-with-addons "0.13.3-0"]
+                 ;[cljsjs/react "0.12.2-addons"]
                  [re-com "0.6.1"]
                  ]
-  ;:cljsbuild {:builds [{:compiler {:optimizations :none }}]}                              
-  :main ^:skip-aot core)
+  :main core)
