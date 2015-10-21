@@ -1,0 +1,1 @@
+{:foreign-libs [{:provides ["cljsjs.react"] :file-min "cljsjs/development/react-with-addons.inc.js" :file "cljsjs/development/react-with-addons.inc.js"}]}
