@@ -21,3 +21,5 @@ My notes:
 ; Another place to look where has the tantilising expression: "you'll need to override :file-min to use non-minified version"
 ; https://github.com/cljsjs/packages/tree/master/react
 ;
+; Integrating libraries:
+; https://github.com/clojure/clojurescript/wiki/Dependencies
